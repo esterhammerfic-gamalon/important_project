@@ -15,8 +15,22 @@ def heres_a_model(question_intents):
     ])
     
     return {question: component}
+
+
+def heres_another_model(question_intents):
+    question = "why!?"
+    
+    component = AllOf(question, [
+        question_intents,
+        Wordlist("why_wl", [
+          "why"
+        ]),
+    ])
+    
+    return {question: component}
     
     
 list_of_models = [
-    heres_a_model(question_intents)
+    heres_a_model(question_intents),
+    heres_another_model(question_intents)
 ]
